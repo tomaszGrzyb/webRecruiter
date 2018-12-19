@@ -200,6 +200,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812182351085_AddedBasicModels.cs" />
+    <Compile Include="Migrations\201812182351085_AddedBasicModels.Designer.cs">
+      <DependentUpon>201812182351085_AddedBasicModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812190006127_AddedBasicModels1.cs" />
+    <Compile Include="Migrations\201812190006127_AddedBasicModels1.Designer.cs">
+      <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentType.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -281,6 +294,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812182351085_AddedBasicModels.resx">
+      <DependentUpon>201812182351085_AddedBasicModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812190006127_AddedBasicModels1.resx">
+      <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

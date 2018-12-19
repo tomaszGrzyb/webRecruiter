@@ -20,7 +20,12 @@ namespace WebRecruiter.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+		public DbSet<Candidate> Candidates { get; set; }
+		public DbSet<Address> Addresses { get; set; }
+		public DbSet<Document> Documents { get; set; }
+		public DbSet<DocumentType> DocumentTypes { get; set; }
+
+		public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
