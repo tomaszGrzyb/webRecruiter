@@ -213,6 +213,13 @@
     <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentType.cs" />
+    <Compile Include="Models\ExamSubject.cs" />
+    <Compile Include="Models\FieldOfStudy.cs" />
+    <Compile Include="Models\FieldOfStudyRequirement.cs" />
+    <Compile Include="Models\Recruitment.cs" />
+    <Compile Include="Models\RecruitmentStatus.cs" />
+    <Compile Include="Models\StudyDegree.cs" />
+    <Compile Include="Models\StudyType.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
