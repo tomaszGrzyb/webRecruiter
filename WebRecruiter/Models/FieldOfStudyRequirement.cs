@@ -11,5 +11,6 @@ namespace WebRecruiter.Models
 		public short FieldOfStudyId { get; set; }
 		public short ExamSubjectId { get; set; }
 		public int RequiredPoints { get; set; }
+
 	}
 }
