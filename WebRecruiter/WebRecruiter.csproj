@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201812190006127_AddedBasicModels1.Designer.cs">
       <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812200048086_FieldOfStudies.cs" />
+    <Compile Include="Migrations\201812200048086_FieldOfStudies.Designer.cs">
+      <DependentUpon>201812200048086_FieldOfStudies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Candidate.cs" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812190006127_AddedBasicModels1.resx">
       <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812200048086_FieldOfStudies.resx">
+      <DependentUpon>201812200048086_FieldOfStudies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

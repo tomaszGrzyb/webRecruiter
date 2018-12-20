@@ -10,8 +10,16 @@ namespace WebRecruiter.Models
 		public short Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public int StudyTypeId { get; set; }
-		public StudyType MyProperty { get; set; }
+
+		public short LimitOfStudents { get; set; }
+
+		public short StudyTypeId { get; set; }
+		public StudyType StudyType { get; set; }
+
+		public short StudyDegreeId { get; set; }
+		public StudyDegree StudyDegree { get; set; }
+
+		public virtual ICollection<FieldOfStudyRequirement> Requirements { get; set; }
 
 	}
 }
