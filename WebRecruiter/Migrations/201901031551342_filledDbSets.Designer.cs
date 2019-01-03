@@ -7,13 +7,13 @@ namespace WebRecruiter.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedBasicModels : IMigrationMetadata
+    public sealed partial class filledDbSets : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedBasicModels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(filledDbSets));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812182351085_AddedBasicModels"; }
+            get { return "201901031551342_filledDbSets"; }
         }
         
         string IMigrationMetadata.Source

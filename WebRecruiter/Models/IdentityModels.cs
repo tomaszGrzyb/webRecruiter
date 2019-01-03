@@ -17,22 +17,5 @@ namespace WebRecruiter.Models
             return userIdentity;
         }
     }
-
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-		public DbSet<Candidate> Candidates { get; set; }
-		public DbSet<Address> Addresses { get; set; }
-		public DbSet<Document> Documents { get; set; }
-		public DbSet<DocumentType> DocumentTypes { get; set; }
-
-		public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-    }
+    
 }

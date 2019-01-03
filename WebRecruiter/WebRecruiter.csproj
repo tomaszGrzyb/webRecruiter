@@ -201,23 +201,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812182351085_AddedBasicModels.cs" />
-    <Compile Include="Migrations\201812182351085_AddedBasicModels.Designer.cs">
-      <DependentUpon>201812182351085_AddedBasicModels.cs</DependentUpon>
+    <Compile Include="Migrations\201901031126194_basicModels.cs" />
+    <Compile Include="Migrations\201901031126194_basicModels.Designer.cs">
+      <DependentUpon>201901031126194_basicModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812190006127_AddedBasicModels1.cs" />
-    <Compile Include="Migrations\201812190006127_AddedBasicModels1.Designer.cs">
-      <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812200048086_FieldOfStudies.cs" />
-    <Compile Include="Migrations\201812200048086_FieldOfStudies.Designer.cs">
-      <DependentUpon>201812200048086_FieldOfStudies.cs</DependentUpon>
+    <Compile Include="Migrations\201901031551342_filledDbSets.cs" />
+    <Compile Include="Migrations\201901031551342_filledDbSets.Designer.cs">
+      <DependentUpon>201901031551342_filledDbSets.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentType.cs" />
+    <Compile Include="Models\ExamResult.cs" />
     <Compile Include="Models\ExamSubject.cs" />
     <Compile Include="Models\FieldOfStudy.cs" />
     <Compile Include="Models\FieldOfStudyRequirement.cs" />
@@ -315,14 +313,11 @@
     <Content Include="Content\Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812182351085_AddedBasicModels.resx">
-      <DependentUpon>201812182351085_AddedBasicModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901031126194_basicModels.resx">
+      <DependentUpon>201901031126194_basicModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812190006127_AddedBasicModels1.resx">
-      <DependentUpon>201812190006127_AddedBasicModels1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812200048086_FieldOfStudies.resx">
-      <DependentUpon>201812200048086_FieldOfStudies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901031551342_filledDbSets.resx">
+      <DependentUpon>201901031551342_filledDbSets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

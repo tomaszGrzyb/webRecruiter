@@ -8,7 +8,6 @@ namespace WebRecruiter.Models
 	public class Candidate
 	{
 		public int Id { get; set; }
-		public int UserId { get; set; }
 		public string FirstName { get; set; }
 		public string SecondName { get; set; }
 		public string LastName { get; set; }
@@ -20,6 +19,8 @@ namespace WebRecruiter.Models
 		public Address Address { get; set; }
 		public int DocumentId { get; set; }
 		public Document Document { get; set; }
+	    public string UserId { get; set; }
+	    public ApplicationUser User { get; set; }
 
-	}
+    }
 }
