@@ -25,7 +25,8 @@ namespace WebRecruiter.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-        }
+			Database.SetInitializer(new ApplicationDbInitializer());
+		}
 
         public static ApplicationDbContext Create()
         {
