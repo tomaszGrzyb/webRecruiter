@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+       padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +20,37 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-inverse {
+	background-color: #193378;
+	border-color: #193378;
+}
+
+.navbar {
+	position: relative;
+	min-height: 50px;
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+	border: 1px solid transparent;
+}
+
+.navbar-nav > li > a {
+	padding-top: 30px;
+	padding-bottom: 0px;
+	color:antiquewhite;
+}
+
+.logo-name {
+	padding-top: 30px;
+	padding-bottom: 0px;
+	font-weight: 700;	
+}
+
+.navbar-inverse .navbar-brand {
+	color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #ffffff;
 }
