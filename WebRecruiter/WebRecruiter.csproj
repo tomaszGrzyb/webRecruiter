@@ -219,6 +219,7 @@
     <Compile Include="Models\ExamSubject.cs" />
     <Compile Include="Models\FieldOfStudy.cs" />
     <Compile Include="Models\FieldOfStudyRequirement.cs" />
+    <Compile Include="Models\RecruitmentSettings.cs" />
     <Compile Include="Models\Recruitment.cs" />
     <Compile Include="Models\RecruitmentStatus.cs" />
     <Compile Include="Models\StudyDegree.cs" />

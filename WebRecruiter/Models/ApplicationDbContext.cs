@@ -21,6 +21,7 @@ namespace WebRecruiter.Models
         public DbSet<FieldOfStudyRequirement> FieldOfStudyRequirements { get; set; }
         public DbSet<StudyDegree> StudyDegreeses { get; set; }
         public DbSet<StudyType> StudyTypes { get; set; }
+		
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
