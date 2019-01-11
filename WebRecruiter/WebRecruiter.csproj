@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -208,6 +209,10 @@
     <Compile Include="Migrations\201901031551342_filledDbSets.cs" />
     <Compile Include="Migrations\201901031551342_filledDbSets.Designer.cs">
       <DependentUpon>201901031551342_filledDbSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901110002057_setNullableFieldsForCandidate.cs" />
+    <Compile Include="Migrations\201901110002057_setNullableFieldsForCandidate.Designer.cs">
+      <DependentUpon>201901110002057_setNullableFieldsForCandidate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -299,6 +304,11 @@
     <Content Include="Views\Candidate\Details.cshtml" />
     <Content Include="Views\Candidate\Edit.cshtml" />
     <Content Include="Views\Candidate\Index.cshtml" />
+    <Content Include="Views\Addresses\Create.cshtml" />
+    <Content Include="Views\Addresses\Delete.cshtml" />
+    <Content Include="Views\Addresses\Details.cshtml" />
+    <Content Include="Views\Addresses\Edit.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901031551342_filledDbSets.resx">
       <DependentUpon>201901031551342_filledDbSets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901110002057_setNullableFieldsForCandidate.resx">
+      <DependentUpon>201901110002057_setNullableFieldsForCandidate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

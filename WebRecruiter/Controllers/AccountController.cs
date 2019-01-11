@@ -158,7 +158,7 @@ namespace WebRecruiter.Controllers
                 if (result.Succeeded)
                 {
 					
-					UserManager.AddToRole(user.UserName, RoleEnum.User.ToString());
+					UserManager.AddToRole(user.Id, RoleEnum.User.ToString());
 					await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

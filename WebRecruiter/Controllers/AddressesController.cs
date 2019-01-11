@@ -11,114 +11,107 @@ using WebRecruiter.Models;
 
 namespace WebRecruiter.Controllers
 {
-    public class CandidateController : Controller
+    public class AddressesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Candidate
+        // GET: Addresses
         public async Task<ActionResult> Index()
         {
-            var candidates = db.Candidates.Include(c => c.Address).Include(c => c.Document);
-            return View(await candidates.ToListAsync());
+            return View(await db.Addresses.ToListAsync());
         }
 
-        // GET: Candidate/Details/5
+        // GET: Addresses/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
+            Address address = await db.Addresses.FindAsync(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-            return View(candidate);
+            return View(address);
         }
 
-        // GET: Candidate/Create
+        // GET: Addresses/Create
         public ActionResult Create()
         {
-            //ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Street");
-            //ViewBag.DocumentId = new SelectList(db.Documents, "Id", "SerialNumber");
             return View();
         }
 
-        // POST: Candidate/Create
+        // POST: Addresses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,SecondName,LastName,DateOfBirth,PlaceOfBirth,PhoneNumber,Pesel")] Candidate candidate)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Street,HouseNumber,ApartmentNumber,City,ZipCode,Country")] Address address)
         {
-			var userName = HttpContext.User.Identity.Name;
-			candidate.UserId = db.Users.FirstOrDefault(x => x.UserName == userName).Id;
-			
             if (ModelState.IsValid)
             {
-				db.Candidates.Add(candidate);
+                db.Addresses.Add(address);
                 await db.SaveChangesAsync();
-				return RedirectToAction("Create", "Address");
-			}
-            
-            return View(candidate);
+                return RedirectToAction("Index");
+            }
+
+            return View(address);
         }
 
-        // GET: Candidate/Edit/5
+        // GET: Addresses/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
+            Address address = await db.Addresses.FindAsync(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-          
-            return View(candidate);
+            return View(address);
         }
 
-        // POST: Candidate/Edit/5
+        // POST: Addresses/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserId,FirstName,SecondName,LastName,DateOfBirth,PlaceOfBirth,PhoneNumber,Pesel,AddressId,DocumentId")] Candidate candidate)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Street,HouseNumber,ApartmentNumber,City,ZipCode,Country")] Address address)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(candidate).State = EntityState.Modified;
+                db.Entry(address).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(candidate);
+            return View(address);
         }
 
-        // GET: Candidate/Delete/5
+        // GET: Addresses/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
+            Address address = await db.Addresses.FindAsync(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-            return View(candidate);
+            return View(address);
         }
 
-        // POST: Candidate/Delete/5
+        // POST: Addresses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            db.Candidates.Remove(candidate);
+            Address address = await db.Addresses.FindAsync(id);
+            db.Addresses.Remove(address);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

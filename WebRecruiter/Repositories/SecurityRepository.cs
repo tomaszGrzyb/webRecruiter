@@ -7,6 +7,6 @@ namespace WebRecruiter.Repositories
 {
 	public class SecurityRepository
 	{
-		public
+		
 	}
 }

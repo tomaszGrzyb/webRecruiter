@@ -34,10 +34,10 @@ namespace WebRecruiter.Models
 		[DisplayName("Pesel")]
 		public string Pesel { get; set; }
 
-		public int AddressId { get; set; }
+		public int? AddressId { get; set; }
 		public Address Address { get; set; }
 
-		public int DocumentId { get; set; }
+		public int? DocumentId { get; set; }
 		public Document Document { get; set; }
 
 	    public string UserId { get; set; }
