@@ -11,115 +11,113 @@ using WebRecruiter.Models;
 
 namespace WebRecruiter.Controllers
 {
-    public class CandidateController : Controller
+    public class ExamResultsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Candidate
+        // GET: ExamResults
         public async Task<ActionResult> Index()
         {
-            var candidates = db.Candidates.Include(c => c.Address).Include(c => c.Document);
-            return View(await candidates.ToListAsync());
+            var examResults = db.ExamResults.Include(e => e.ExamSubject);
+            return View(await examResults.ToListAsync());
         }
 
-        // GET: Candidate/Details/5
-        public async Task<ActionResult> Details(int? id)
+        // GET: ExamResults/Details/5
+        public async Task<ActionResult> Details(short? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
+            ExamResult examResult = await db.ExamResults.FindAsync(id);
+            if (examResult == null)
             {
                 return HttpNotFound();
             }
-            return View(candidate);
+            return View(examResult);
         }
 
-        // GET: Candidate/Create
+        // GET: ExamResults/Create
         public ActionResult Create()
         {
-			//ViewBag.AddressId = new SelectList(db.Addresses, "Id", "Street");
-			//ViewBag.DocumentId = new SelectList(db.Documents, "Id", "SerialNumber");
-			var dfd = db.DocumentTypes.ToList();
+            ViewBag.ExamSubjectId = new SelectList(db.ExamSubjects, "Id", "Name");
             return View();
         }
 
-        // POST: Candidate/Create
+        // POST: ExamResults/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,FirstName,SecondName,LastName,DateOfBirth,PlaceOfBirth,PhoneNumber,Pesel")] Candidate candidate)
-        {
-			var userName = HttpContext.User.Identity.Name;
-			candidate.UserId = db.Users.FirstOrDefault(x => x.UserName == userName).Id;
-			
-            if (ModelState.IsValid)
-            {
-				db.Candidates.Add(candidate);
-                await db.SaveChangesAsync();
-				return RedirectToAction("Create", "ExamResult");
-			}
-            
-            return View(candidate);
-        }
-
-        // GET: Candidate/Edit/5
-        public async Task<ActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
-            {
-                return HttpNotFound();
-            }
-          
-            return View(candidate);
-        }
-
-        // POST: Candidate/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserId,FirstName,SecondName,LastName,DateOfBirth,PlaceOfBirth,PhoneNumber,Pesel,AddressId,DocumentId")] Candidate candidate)
+        public async Task<ActionResult> Create([Bind(Include = "Id,ReceivedPoints,IsAdvanced,ExamSubjectId")] ExamResult examResult)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(candidate).State = EntityState.Modified;
+                db.ExamResults.Add(examResult);
+
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(candidate);
+
+            ViewBag.ExamSubjectId = new SelectList(db.ExamSubjects, "Id", "Name", examResult.ExamSubjectId);
+            return View(examResult);
         }
 
-        // GET: Candidate/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        // GET: ExamResults/Edit/5
+        public async Task<ActionResult> Edit(short? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            if (candidate == null)
+            ExamResult examResult = await db.ExamResults.FindAsync(id);
+            if (examResult == null)
             {
                 return HttpNotFound();
             }
-            return View(candidate);
+            ViewBag.ExamSubjectId = new SelectList(db.ExamSubjects, "Id", "Name", examResult.ExamSubjectId);
+            return View(examResult);
         }
 
-        // POST: Candidate/Delete/5
+        // POST: ExamResults/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "Id,ReceivedPoints,IsAdvanced,ExamSubjectId")] ExamResult examResult)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(examResult).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.ExamSubjectId = new SelectList(db.ExamSubjects, "Id", "Name", examResult.ExamSubjectId);
+            return View(examResult);
+        }
+
+        // GET: ExamResults/Delete/5
+        public async Task<ActionResult> Delete(short? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ExamResult examResult = await db.ExamResults.FindAsync(id);
+            if (examResult == null)
+            {
+                return HttpNotFound();
+            }
+            return View(examResult);
+        }
+
+        // POST: ExamResults/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(short id)
         {
-            Candidate candidate = await db.Candidates.FindAsync(id);
-            db.Candidates.Remove(candidate);
+            ExamResult examResult = await db.ExamResults.FindAsync(id);
+            db.ExamResults.Remove(examResult);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

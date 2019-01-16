@@ -10,7 +10,6 @@ namespace WebRecruiter.Models
 		public short Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-
 		public short LimitOfStudents { get; set; }
 
 		public short StudyTypeId { get; set; }
